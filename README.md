@@ -140,3 +140,48 @@ data/raw/
 * 为后续 AI JD Analysis 和 Resume-Job Matching 做准备
 
 > 当前数据集仍处于项目早期阶段，采集结果主要用于验证数据采集、清洗和分析流程，不代表整体招聘市场情况。
+
+## 2026-08-13 — JD HTML Cleaning
+
+完成 Greenhouse 岗位描述的文本清洗，将原始 HTML JD 转换为后续分析可直接使用的纯文本数据。
+
+### 已完成
+
+* 新增 `clean_jobs.py` 数据清洗脚本
+* 读取 `data/raw/greenhouse_china_jobs.csv`
+* 使用 `html.unescape()` 还原 HTML 转义字符
+* 使用 BeautifulSoup 去除 HTML 标签
+* 清理多余空行和连续空格
+* 新增 `description_text` 字段，同时保留原始 `description_html`
+* 对全部 78 条中国岗位完成 JD 文本清洗
+* `description_html` 空值：0
+* `description_text` 空文本：0
+* 平均 JD 文本长度约 3546 字符
+
+生成文件：
+
+```text
+data/processed/greenhouse_jobs_clean.csv
+```
+
+当前数据处理流程：
+
+```text
+Greenhouse API
+    ↓
+Raw HTML JD
+    ↓
+HTML Decode
+    ↓
+BeautifulSoup
+    ↓
+Text Cleaning
+    ↓
+Processed JD Text
+```
+
+### 下一步
+
+* 从清洗后的 JD 中提取 Skills
+* 提取 Education / Experience / English 等岗位要求
+* 为后续职位匹配与 Skill Gap 分析准备结构化数据
