@@ -185,3 +185,81 @@ Processed JD Text
 * 从清洗后的 JD 中提取 Skills
 * 提取 Education / Experience / English 等岗位要求
 * 为后续职位匹配与 Skill Gap 分析准备结构化数据
+
+## 2026-08-14 — Job Data Standardization & Deduplication
+
+完成 Greenhouse 岗位数据的标准化与去重，为后续岗位分析和结构化字段提取准备更稳定的数据基础。
+
+### 已完成
+
+* 新增 `standardize_jobs.py`
+* 对公司名称、岗位名称和工作地点进行统一处理
+* 保留以下原始字段，保证数据可追溯：
+
+  * `company_raw`
+  * `job_title_raw`
+  * `location_raw`
+* 统一常见中国城市名称，例如：
+
+  * Beijing
+  * Shanghai
+  * Shenzhen
+  * Guangzhou
+  * Hangzhou
+  * Chengdu
+  * Suzhou
+* 保留多城市岗位，例如：
+
+  * `Beijing; Shanghai`
+  * `Beijing; Shanghai; Shenzhen`
+* 使用 `source_url` 检查完全重复岗位
+* 使用 `company + job_title + location` 作为第二层去重规则
+* 根据 `updated_at` 优先保留更新时间较新的记录
+* 将数据从 78 条减少到 76 条唯一中国岗位记录
+* 当前数据集包含 9 家实际有中国岗位记录的公司
+* 当前唯一岗位名称数量：69
+
+### 当前地点分布
+
+主要岗位地点包括：
+
+```text
+Shanghai     53
+Beijing       8
+Shenzhen      5
+Beijing; Shanghai
+Beijing; Shanghai; Shenzhen
+Qingdao
+Shanghai; Shenzhen
+China
+```
+
+### 数据处理流程
+
+```text
+Greenhouse API
+    ↓
+Raw Job Data
+    ↓
+HTML Cleaning
+    ↓
+Field Standardization
+    ↓
+Duplicate Detection
+    ↓
+Deduplicated Processed Dataset
+```
+
+生成文件：
+
+```text
+data/processed/greenhouse_jobs_standardized.csv
+```
+
+### 下一步
+
+* 提取 Skills
+* 提取 Education / Experience / English 等岗位要求
+* 对不同岗位方向进行技能需求对比
+* 为后续 Skill Gap 和 Job Matching 做准备
+
