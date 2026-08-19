@@ -1,12 +1,10 @@
 ﻿company,board_token,status,total_jobs,china_jobs,target_jobs
-MongoDB,mongodb,success,409,3,0
-Moloco,moloco,success,49,2,0
-The Trade Desk,thetradedesk,success,202,4,0
-Flexport,flexport,success,156,15,0
-project44,project44,success,38,0,0
-SES AI,sesai,success,42,31,1
-AlphaGrep Securities,alphagrepsecurities,success,16,9,0
-WorldQuant,worldquant,success,101,4,2
-Speechify,speechify,success,1289,7,0
-GOAT Group,goatgroup,success,28,0,0
-Appier,appier,success,87,3,1
+AlphaGrep Securities,alphagrepsecurities,snapshot,not_available_in_snapshot,9,0
+Appier,appier,snapshot,not_available_in_snapshot,3,1
+Flexport,flexport,snapshot,not_available_in_snapshot,15,0
+Moloco,moloco,snapshot,not_available_in_snapshot,2,0
+MongoDB,mongodb,snapshot,not_available_in_snapshot,3,0
+SES AI,sesai,snapshot,not_available_in_snapshot,31,1
+Speechify,speechify,snapshot,not_available_in_snapshot,7,0
+The Trade Desk,thetradedesk,snapshot,not_available_in_snapshot,4,0
+WorldQuant,worldquant,snapshot,not_available_in_snapshot,4,2

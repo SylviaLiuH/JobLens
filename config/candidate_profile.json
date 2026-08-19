@@ -1,0 +1,11 @@
+{
+  "name": "Sylvia",
+  "education": "Bachelor",
+  "major": "Software Engineering",
+  "graduation_year": 2027,
+  "graduation_month": 6,
+  "skills": ["Python", "SQL", "Pandas", "Git"],
+  "english_evidence": "CET-6 494",
+  "external_internship_policy": "pending_confirmation",
+  "notes": "School policy for replacing credits with an external internship is pending confirmation after semester starts."
+}
